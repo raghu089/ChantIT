@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVA-yD-afu">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -30,9 +34,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oH-8K-jfR">
                                         <rect key="frame" x="4.6666666666666572" y="349" width="300" height="50"/>
                                         <color key="backgroundColor" name="Orange"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="lze-vj-dmK"/>
-                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Japa Mandala" titleAlignment="center">
                                             <fontDescription key="titleFontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
@@ -47,9 +48,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQQ-nW-6qs">
                                         <rect key="frame" x="4.6666666666666572" y="439" width="300" height="50"/>
                                         <color key="backgroundColor" name="Orange"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="S2X-YV-jNB"/>
-                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Dhyana">
                                             <fontDescription key="titleFontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
@@ -63,7 +61,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="VQQ-nW-6qs" firstAttribute="top" secondItem="3oH-8K-jfR" secondAttribute="bottom" constant="40" id="E8T-Nt-0sT"/>
+                                    <constraint firstItem="VQQ-nW-6qs" firstAttribute="top" secondItem="3oH-8K-jfR" secondAttribute="bottom" constant="40" id="vfE-IE-A5O"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -74,16 +72,18 @@
                             <constraint firstItem="oiT-Iy-oSb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="8Sm-mH-cuS"/>
                             <constraint firstItem="v3E-Dz-6XE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AKJ-Fi-uKd"/>
                             <constraint firstItem="2kU-vY-0S8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.78626" id="ANj-xV-eQq"/>
+                            <constraint firstItem="VQQ-nW-6qs" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0586854" id="CHo-o5-mK5"/>
                             <constraint firstItem="VQQ-nW-6qs" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.763359" id="D6f-lG-33K"/>
                             <constraint firstItem="oiT-Iy-oSb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="K4k-4g-UHl"/>
                             <constraint firstItem="2kU-vY-0S8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.362676" id="RXT-Fb-Czw"/>
                             <constraint firstItem="v3E-Dz-6XE" firstAttribute="top" secondItem="oiT-Iy-oSb" secondAttribute="bottom" constant="30" id="yEO-R3-RZu"/>
+                            <constraint firstItem="3oH-8K-jfR" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0586854" id="z5O-iD-pMZ"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19" y="-2"/>
+            <point key="canvasLocation" x="79" y="-2"/>
         </scene>
         <!--Japa MandalaH View Controller-->
         <scene sceneID="Dig-bY-cu8">
@@ -93,38 +93,205 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5n-Ue-UR8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5n-Ue-UR8" customClass="customView" customModule="ChantIT" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4G-jK-eWS">
-                                        <rect key="frame" x="15" y="2" width="62" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowL" title=" "/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="backGround"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="K96-dY-MVz"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n0I-uF-9Mr">
+                                <rect key="frame" x="46.666666666666657" y="147.66666666666663" width="300" height="582"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="japaMonk" translatesAutoresizingMaskIntoConstraints="NO" id="mKv-sj-iyp">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select number of counts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-l5-0tx">
+                                        <rect key="frame" x="24.666666666666671" y="310" width="250.33333333333331" height="24.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="36"/>
+                                        <color key="textColor" name="blackDarkLight"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="20"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJb-tu-zuQ">
+                                        <rect key="frame" x="0.0" y="378.66666666666674" width="300" height="50"/>
+                                        <color key="backgroundColor" name="Orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="21">
+                                            <fontDescription key="titleFontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
+                                            <color key="baseForegroundColor" name="AppBlackConstat"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                <integer key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW1-S7-7Jk">
+                                        <rect key="frame" x="0.0" y="458.66666666666674" width="300" height="50"/>
+                                        <color key="backgroundColor" name="Orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="108">
+                                            <fontDescription key="titleFontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
+                                            <color key="baseForegroundColor" name="AppBlackConstat"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                <integer key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deb-9i-K9A">
+                                        <rect key="frame" x="106.33333333333334" y="544.66666666666674" width="87.333333333333343" height="37.333333333333371"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="History">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.15882819889999999" green="0.14937081930000001" blue="0.1456476152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="20" name="SFCompact-Semibold"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" name="AppBlackConstat"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JJb-tu-zuQ" firstAttribute="top" secondItem="EjM-l5-0tx" secondAttribute="bottom" constant="44" id="0Xl-oH-Ql6"/>
+                                    <constraint firstItem="EjM-l5-0tx" firstAttribute="top" secondItem="mKv-sj-iyp" secondAttribute="bottom" constant="10" id="6eV-s4-t9e"/>
+                                    <constraint firstItem="deb-9i-K9A" firstAttribute="top" secondItem="sW1-S7-7Jk" secondAttribute="bottom" constant="36" id="fV2-1A-Mwk"/>
+                                    <constraint firstItem="sW1-S7-7Jk" firstAttribute="top" secondItem="JJb-tu-zuQ" secondAttribute="bottom" constant="30" id="rVa-UU-cuw"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kq1-tY-YWc"/>
                         <color key="backgroundColor" name="backGround"/>
                         <constraints>
+                            <constraint firstItem="JJb-tu-zuQ" firstAttribute="height" secondItem="bqB-oK-WAm" secondAttribute="height" multiplier="0.0586854" id="HE6-SA-Yds"/>
+                            <constraint firstItem="mKv-sj-iyp" firstAttribute="width" secondItem="bqB-oK-WAm" secondAttribute="width" multiplier="0.763359" id="Jh6-j7-K1a"/>
+                            <constraint firstItem="sW1-S7-7Jk" firstAttribute="height" secondItem="bqB-oK-WAm" secondAttribute="height" multiplier="0.0586854" id="KO7-pM-YTn"/>
                             <constraint firstItem="V5n-Ue-UR8" firstAttribute="trailing" secondItem="kq1-tY-YWc" secondAttribute="trailing" id="MBI-8L-iHT"/>
+                            <constraint firstItem="n0I-uF-9Mr" firstAttribute="centerX" secondItem="kq1-tY-YWc" secondAttribute="centerX" id="RSf-kM-TMD"/>
+                            <constraint firstItem="n0I-uF-9Mr" firstAttribute="centerY" secondItem="kq1-tY-YWc" secondAttribute="centerY" id="RWE-FW-u7u"/>
                             <constraint firstItem="V5n-Ue-UR8" firstAttribute="leading" secondItem="kq1-tY-YWc" secondAttribute="leading" id="fL2-Cn-Rop"/>
                             <constraint firstItem="V5n-Ue-UR8" firstAttribute="top" secondItem="kq1-tY-YWc" secondAttribute="top" id="gWg-NY-y0p"/>
+                            <constraint firstItem="mKv-sj-iyp" firstAttribute="height" secondItem="bqB-oK-WAm" secondAttribute="height" multiplier="0.352113" id="pel-w0-5pD"/>
+                            <constraint firstItem="sW1-S7-7Jk" firstAttribute="width" secondItem="bqB-oK-WAm" secondAttribute="width" multiplier="0.763359" id="sBr-Ud-qAP"/>
+                            <constraint firstItem="JJb-tu-zuQ" firstAttribute="width" secondItem="bqB-oK-WAm" secondAttribute="width" multiplier="0.763359" id="tae-LZ-OhT"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oln-hC-BUp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.70229007633588" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="810" y="-2"/>
+        </scene>
+        <!--Mantra Adding View Controller-->
+        <scene sceneID="RkS-ig-ALD">
+            <objects>
+                <viewController storyboardIdentifier="MantraAddingViewController" id="RVA-yD-afu" customClass="MantraAddingViewController" customModule="ChantIT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4kH-fw-nIs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8b-ij-8Z6" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
+                                <color key="backgroundColor" name="backGround"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6Yr-96-T2r"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Hz-BJ-AHs">
+                                <rect key="frame" x="46.666666666666657" y="158.33333333333331" width="300" height="560.33333333333348"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="japaMonk" translatesAutoresizingMaskIntoConstraints="NO" id="gdW-Dw-BaS">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the Mantra you want to chant." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gV-fT-fez">
+                                        <rect key="frame" x="0.0" y="324" width="300" height="49"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="36"/>
+                                        <color key="textColor" name="blackDarkLight"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="20"/>
+                                        </variation>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p3H-m6-cRb">
+                                        <rect key="frame" x="0.0" y="391" width="300" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46q-j0-Qb8">
+                                        <rect key="frame" x="50" y="463" width="200" height="50"/>
+                                        <color key="backgroundColor" name="Orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Continue">
+                                            <fontDescription key="titleFontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
+                                            <color key="baseForegroundColor" name="AppBlackConstat"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                <integer key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGT-Eo-0Q7">
+                                        <rect key="frame" x="118.00000000000001" y="523" width="63.666666666666671" height="37.333333333333371"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Skip">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.15882819889999999" green="0.14937081930000001" blue="0.1456476152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="20" name="SFCompact-Semibold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" name="AppBlackConstat"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="p3H-m6-cRb" firstAttribute="top" secondItem="9gV-fT-fez" secondAttribute="bottom" constant="18" id="3Yv-UA-vLc"/>
+                                    <constraint firstItem="JGT-Eo-0Q7" firstAttribute="top" secondItem="46q-j0-Qb8" secondAttribute="bottom" constant="10" id="CAa-Ky-5g2"/>
+                                    <constraint firstItem="46q-j0-Qb8" firstAttribute="top" secondItem="p3H-m6-cRb" secondAttribute="bottom" constant="32" id="mdg-nC-q5f"/>
+                                    <constraint firstItem="9gV-fT-fez" firstAttribute="top" secondItem="gdW-Dw-BaS" secondAttribute="bottom" constant="24" id="veh-di-kAf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mPr-p3-Pko"/>
+                        <color key="backgroundColor" name="backGround"/>
+                        <constraints>
+                            <constraint firstItem="P8b-ij-8Z6" firstAttribute="top" secondItem="mPr-p3-Pko" secondAttribute="top" id="Jve-em-4kc"/>
+                            <constraint firstItem="gdW-Dw-BaS" firstAttribute="height" secondItem="4kH-fw-nIs" secondAttribute="height" multiplier="0.352113" id="c9V-z0-Y8K"/>
+                            <constraint firstItem="P8b-ij-8Z6" firstAttribute="leading" secondItem="mPr-p3-Pko" secondAttribute="leading" id="dWq-EM-2E2"/>
+                            <constraint firstItem="gdW-Dw-BaS" firstAttribute="width" secondItem="4kH-fw-nIs" secondAttribute="width" multiplier="0.763359" id="e51-e3-Bev"/>
+                            <constraint firstItem="46q-j0-Qb8" firstAttribute="height" secondItem="4kH-fw-nIs" secondAttribute="height" multiplier="0.0586854" id="e9H-lz-lAJ"/>
+                            <constraint firstItem="46q-j0-Qb8" firstAttribute="centerX" secondItem="mPr-p3-Pko" secondAttribute="centerX" id="ile-wr-ZKL"/>
+                            <constraint firstItem="9gV-fT-fez" firstAttribute="width" secondItem="4kH-fw-nIs" secondAttribute="width" multiplier="0.763359" id="lC5-g8-Vf3"/>
+                            <constraint firstItem="P8b-ij-8Z6" firstAttribute="trailing" secondItem="mPr-p3-Pko" secondAttribute="trailing" id="mef-GR-fDU"/>
+                            <constraint firstItem="46q-j0-Qb8" firstAttribute="width" secondItem="4kH-fw-nIs" secondAttribute="width" multiplier="0.508906" id="vWi-fJ-dvn"/>
+                            <constraint firstItem="p3H-m6-cRb" firstAttribute="width" secondItem="4kH-fw-nIs" secondAttribute="width" multiplier="0.763359" id="voE-0q-mi4"/>
+                            <constraint firstItem="p3H-m6-cRb" firstAttribute="height" secondItem="4kH-fw-nIs" secondAttribute="height" multiplier="0.0469484" id="w7U-GL-yrt"/>
+                            <constraint firstItem="3Hz-BJ-AHs" firstAttribute="centerX" secondItem="mPr-p3-Pko" secondAttribute="centerX" id="wqs-LO-2Gh"/>
+                            <constraint firstItem="3Hz-BJ-AHs" firstAttribute="centerY" secondItem="mPr-p3-Pko" secondAttribute="centerY" id="z61-hS-bCK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEu-8b-11w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1550" y="-2"/>
         </scene>
     </scenes>
     <resources>
-        <image name="arrowL" width="33.333332061767578" height="31.333333969116211"/>
+        <image name="japaMonk" width="299" height="299"/>
         <image name="smallLogo" width="101.66666412353516" height="22"/>
         <image name="standingMonk" width="309" height="309"/>
         <namedColor name="AppBlackConstat">
@@ -136,8 +303,8 @@
         <namedColor name="backGround">
             <color red="1" green="0.792156862745098" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="blackDarkLight">
+            <color red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
