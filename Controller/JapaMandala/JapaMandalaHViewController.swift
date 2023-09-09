@@ -8,13 +8,22 @@
 import UIKit
 
 class JapaMandalaHViewController: UIViewController {
-
+    
+    @IBOutlet weak var twentyOne: UIButton!
+    
+    @IBOutlet weak var oneHEight: UIButton!
+    
+    @IBOutlet weak var history: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
+    @IBAction func actionBtns(_ sender: Any) {
+    }
+    
+    
+    
 
 }
