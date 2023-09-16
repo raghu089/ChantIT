@@ -32,6 +32,12 @@ struct Constants {
     //meditationHome
     static let setBtn = "Set Btn"
     static let historyBtn = "History Btn"
+    
+    
+ // MARK: - ViewControllers
+    static let japaMandalaVC = "JapaMandalaHViewController"
+    static let meditaionHomeVC = "meditaionHomeViewController"
+    
 }
 
 

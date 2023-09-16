@@ -18,9 +18,19 @@ class meditaionHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateUI()
         
     }
+    
+    
+    //UI Updates
+    
+    func updateUI(){
+        continueBtn.applyBorderProperties()
+        navBackBtn()
+    }
+    
+
     
     @IBAction func actionBtn(_ sender: Any) {
     }

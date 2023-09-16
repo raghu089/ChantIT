@@ -7,18 +7,30 @@
 
 import UIKit
 
-class JapaMandalaHViewController: UIViewController {
+class JapaMandalaHViewController: UIViewController{
     
     @IBOutlet weak var twentyOne: UIButton!
     
     @IBOutlet weak var oneHEight: UIButton!
     
     @IBOutlet weak var history: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        updateUI()
         
     }
+    
+    
+    //UI Updates
+    
+    func updateUI(){
+        navBackBtn()
+    }
+    
+    
     
     @IBAction func actionBtns(_ sender: Any) {
     }

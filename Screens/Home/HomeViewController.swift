@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+
+
 class HomeViewController: UIViewController {
     
     
@@ -23,7 +26,16 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func CategoriesAction(_ sender: UIButton) {
-        
+        print(sender.titleLabel?.text ?? "")
+        switch sender.titleLabel?.text {
+            
+          case Constants.japaMandala:
+            pushViewcontroller(Constants.japaMandalaVC)
+          case Constants.dhyana:
+                pushViewcontroller(Constants.meditaionHomeVC)
+          default:
+            print("No Case")
+        }
         
     }
     

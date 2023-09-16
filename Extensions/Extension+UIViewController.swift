@@ -11,6 +11,8 @@ import UIKit
 
 extension UIViewController{
     
+    //Alert View
+    
     func popAlert(title: String, message: String, actionTitles: [String], actionStyle: [UIAlertAction.Style],  action: [((UIAlertAction) -> Void)]){
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -26,7 +28,7 @@ extension UIViewController{
         
     }
     
-    
+    //Hide Keyboard
     func hideKeyboardWhenTappedAround(){
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -42,5 +44,36 @@ extension UIViewController{
         
     }
     
+    
+    func pushViewcontroller(_ identifier: String){
+        
+      let VC = Constants.mainStoryboard.instantiateViewController(withIdentifier: identifier)
+        
+      self.navigationController?.pushViewController(VC, animated: true)
+        
+    }
+    
+    
+    //Navigation Back button
+    
+    func navBackBtn() {
+       
+        let backButtonImage = UIImage(named: "arrowL")
+        let backButton = UIBarButtonItem(
+            image: backButtonImage,
+            style: .plain,
+            target: self,
+            action: #selector(openInfo)
+        )
+
+        self.navigationItem.leftBarButtonItem = backButton
+        
+    }
+    
+    @objc func openInfo() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+   
     
 }

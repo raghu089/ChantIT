@@ -18,11 +18,15 @@ class MantraAddingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
     }
     
+    //Actions
+    
     @IBAction func actionBtns(_ sender: Any) {
+        
+        
     }
     
     
