@@ -21,8 +21,8 @@ struct Constants {
     static let dhyana = "Dhyana"
     
     //JapaMandalaHV
-    static let twentyOne = "Twenty One"
-    static let oneHEight = "OneH Eight"
+    static let twentyOne = "21"
+    static let oneHEight = "108"
     static let history = "History"
     
     //MantraAdd
@@ -34,9 +34,11 @@ struct Constants {
     static let historyBtn = "History Btn"
     
     
- // MARK: - ViewControllers
+// MARK: - ViewControllers
     static let japaMandalaVC = "JapaMandalaHViewController"
     static let meditaionHomeVC = "meditaionHomeViewController"
+    static let historyVC = "HistoryViewController"
+    static let mantraDetailsVC = "MantraAddingViewController"
     
 }
 

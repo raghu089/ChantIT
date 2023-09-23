@@ -21,8 +21,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        updateUI()
     }
+    
+    
+    //UI Updates
+    
+    func updateUI(){
+        JapaMandal.updateShadow()
+        Dhyana.updateShadow()
+    }
+    
     
     
     @IBAction func CategoriesAction(_ sender: UIButton) {
@@ -30,7 +39,7 @@ class HomeViewController: UIViewController {
         switch sender.titleLabel?.text {
             
           case Constants.japaMandala:
-            pushViewcontroller(Constants.japaMandalaVC)
+                pushViewcontroller(Constants.japaMandalaVC)
           case Constants.dhyana:
                 pushViewcontroller(Constants.meditaionHomeVC)
           default:

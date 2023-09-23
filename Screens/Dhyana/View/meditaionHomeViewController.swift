@@ -27,7 +27,7 @@ class meditaionHomeViewController: UIViewController {
     
     func updateUI(){
         continueBtn.applyBorderProperties()
-        navBackBtn()
+        navBackBtn(Constants.dhyana)
     }
     
 

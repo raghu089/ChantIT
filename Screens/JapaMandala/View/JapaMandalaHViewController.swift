@@ -27,12 +27,28 @@ class JapaMandalaHViewController: UIViewController{
     //UI Updates
     
     func updateUI(){
-        navBackBtn()
+        navBackBtn(Constants.japaMandala)
+        twentyOne.updateShadow()
+        oneHEight.updateShadow()
+        history.underlineText("History")
     }
     
     
     
-    @IBAction func actionBtns(_ sender: Any) {
+    @IBAction func actionBtns(_ sender: UIButton) {
+        
+        print(sender.titleLabel?.text ?? "")
+        switch sender.titleLabel?.text {
+            
+          case Constants.twentyOne, Constants.oneHEight:
+               pushViewcontroller(Constants.mantraDetailsVC)
+          case Constants.history:
+               pushViewcontroller(Constants.historyVC)
+          default:
+            print("No Case")
+        }
+        
+        
     }
     
     

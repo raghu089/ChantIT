@@ -55,18 +55,21 @@ extension UIViewController{
     
     
     //Navigation Back button
-    
-    func navBackBtn() {
+   
+    func navBackBtn(_ Navtitle: String) {
        
-        let backButtonImage = UIImage(named: "arrowL")
-        let backButton = UIBarButtonItem(
-            image: backButtonImage,
-            style: .plain,
-            target: self,
-            action: #selector(openInfo)
-        )
+               self.navigationItem.title = Navtitle
+               
+               let backButtonImage = UIImage(named: "arrowL")
+               
+               let backButton = UIBarButtonItem(
+                   image: backButtonImage,
+                   style: .plain,
+                   target: self,
+                   action: #selector(openInfo)
+               )
 
-        self.navigationItem.leftBarButtonItem = backButton
+               self.navigationItem.leftBarButtonItem = backButton
         
     }
     
@@ -74,6 +77,6 @@ extension UIViewController{
         self.navigationController?.popViewController(animated: true)
     }
     
-   
+    
     
 }

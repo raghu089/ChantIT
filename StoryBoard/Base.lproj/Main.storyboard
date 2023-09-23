@@ -113,7 +113,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5n-Ue-UR8" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V5n-Ue-UR8">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <color key="backgroundColor" name="backGround"/>
                                 <constraints>
@@ -178,8 +178,9 @@
                                             <attributedString key="attributedTitle">
                                                 <fragment content="History">
                                                     <attributes>
-                                                        <color key="NSColor" red="0.15882819889999999" green="0.14937081930000001" blue="0.1456476152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <font key="NSFont" size="20" name="SFCompact-Semibold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         <integer key="NSUnderline" value="1"/>
                                                     </attributes>
                                                 </fragment>
@@ -233,7 +234,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8b-ij-8Z6" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8b-ij-8Z6">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <color key="backgroundColor" name="backGround"/>
                                 <constraints>
@@ -346,7 +347,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rt-zN-Gb8" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rt-zN-Gb8">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <color key="backgroundColor" name="backGround"/>
                                 <constraints>
@@ -470,7 +471,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-nc-Zeg" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-nc-Zeg">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <color key="backgroundColor" name="backGround"/>
                                 <constraints>
@@ -581,7 +582,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvK-8L-oB3" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvK-8L-oB3">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <color key="backgroundColor" name="backGround"/>
                                 <constraints>
@@ -700,7 +701,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jue-Hq-A7r" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jue-Hq-A7r">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <color key="backgroundColor" name="backGround"/>
                                 <constraints>
@@ -803,7 +804,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAN-jL-eAh" customClass="customView" customModule="ChantIT" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAN-jL-eAh">
                                 <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <color key="backgroundColor" name="backGround"/>
                                 <constraints>
@@ -876,15 +877,17 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oVJ-YK-OKa" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrowL" backIndicatorTransitionMaskImage="arrowL" id="gz5-jR-dS2">
+                    <navigationBar key="navigationBar" contentMode="scaleAspectFit" backIndicatorImage="arrowL" backIndicatorTransitionMaskImage="arrowL" id="gz5-jR-dS2">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="blackDarkLight"/>
                         <color key="barTintColor" name="blackDarkLight"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
                             <color key="textColor" name="blackDarkLight"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="24"/>
                             <color key="textColor" name="blackDarkLight"/>
                         </textAttributes>
                     </navigationBar>
@@ -899,7 +902,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowL" width="33.333332061767578" height="31.333333969116211"/>
+        <image name="arrowL" width="26" height="24.666666030883789"/>
         <image name="japaMonk" width="299" height="299"/>
         <image name="meditatingMonk" width="299" height="299"/>
         <image name="smallLogo" width="101.66666412353516" height="22"/>
