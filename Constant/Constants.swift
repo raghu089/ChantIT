@@ -12,8 +12,19 @@ import UIKit
 struct Constants {
     
 // MARK: - Navigation Support
+   // Only if I am using different storyboard
     
     static let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    
+    
+// MARK: - Colors
+    
+    static let AppBlackConstant = "AppBlackConstat"
+    static let backGround = "backGround"
+    static let blackDarkLight = "blackDarkLight"
+    static let orange = "Orange"
+    static let orangeWhite = "orangeWhite"
+    
     
 // MARK: - Button Names
     //Home
@@ -26,12 +37,11 @@ struct Constants {
     static let history = "History"
     
     //MantraAdd
-    static let continueBtn = "Continue Btn"  //common
-    static let skipBtn = "Skip Btn"
+    static let continueBtn = "Continue"  //common
+    static let skipBtn = "Skip"
     
     //meditationHome
-    static let setBtn = "Set Btn"
-    static let historyBtn = "History Btn"
+    static let setBtn = "Set"
     
     
 // MARK: - ViewControllers
@@ -39,8 +49,8 @@ struct Constants {
     static let meditaionHomeVC = "meditaionHomeViewController"
     static let historyVC = "HistoryViewController"
     static let mantraDetailsVC = "MantraAddingViewController"
+    static let meditationTimerVC = "MeditationTimerViewController"
     
 }
-
 
 

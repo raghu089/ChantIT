@@ -7,7 +7,7 @@
 
 import UIKit
 
-class meditaionHomeViewController: UIViewController {
+class meditaionHomeViewController: PickerViewController {
     
     
     @IBOutlet weak var setBtn: UIButton!
@@ -15,6 +15,9 @@ class meditaionHomeViewController: UIViewController {
     @IBOutlet weak var continueBtn: UIButton!
     
     @IBOutlet weak var historyBtn: UIButton!
+    
+   // let pickerView = PickerViewController()
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +31,39 @@ class meditaionHomeViewController: UIViewController {
     func updateUI(){
         continueBtn.applyBorderProperties()
         navBackBtn(Constants.dhyana)
+        continueBtn.updateShadow()
+        setBtn.updateShadow()
+        historyBtn.underlineText("History")
+       // pickerView.configure()
     }
     
-
     
-    @IBAction func actionBtn(_ sender: Any) {
+    @IBAction func actionBtn(_ sender: UIButton) {
+        
+        print(sender.titleLabel?.text ?? "")
+        switch sender.titleLabel?.text {
+            
+          case Constants.setBtn:
+               print("Picker")
+               openPicker()
+          case Constants.continueBtn:
+               pushViewcontroller(Constants.meditationTimerVC)
+          case Constants.history:
+               pushViewcontroller(Constants.historyVC)
+          default:
+            print("No Case")
+        }
+        
+        
     }
     
   
 
 }
+
+
+
+
+
+
+
