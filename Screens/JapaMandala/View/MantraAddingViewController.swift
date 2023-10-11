@@ -19,12 +19,34 @@ class MantraAddingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
         
+    }
+    
+    //UI Updates
+    
+    func updateUI(){
+        navBackBtn(Constants.japaMandala)
+        continueBtn.updateShadow()
+        skipBtn.underlineText("Skip")
+        mantraTextField.applyBorder()
+        mantraTextField.setPlaceHolder("Enter Mantra")
     }
     
     //Actions
     
-    @IBAction func actionBtns(_ sender: Any) {
+    @IBAction func actionBtns(_ sender: UIButton) {
+        
+        print(sender.titleLabel?.text ?? "")
+        switch sender.titleLabel?.text {
+            
+          case Constants.continueBtn:
+               pushViewcontroller(Constants.JMHomeVC)
+          case Constants.skipBtn:
+               pushViewcontroller(Constants.JMHomeVC)
+          default:
+            print("No Case")
+        }
         
         
     }
