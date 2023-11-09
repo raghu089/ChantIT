@@ -61,7 +61,13 @@ extension UIViewController{
         
     }
     
-    
+    func pushDataVc(_ identifier: String) -> UIViewController{
+        
+        let Vc = Constants.mainStoryboard.instantiateViewController(withIdentifier: identifier)
+     
+        return Vc
+        
+    }
     
     
     //Navigation Left Button (Back)

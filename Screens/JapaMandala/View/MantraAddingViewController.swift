@@ -16,6 +16,8 @@ class MantraAddingViewController: UIViewController {
     
     @IBOutlet weak var skipBtn: UIButton!
     
+    var japaModel : japaMandalaModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,16 +40,12 @@ class MantraAddingViewController: UIViewController {
     @IBAction func actionBtns(_ sender: UIButton) {
         
         print(sender.titleLabel?.text ?? "")
-        switch sender.titleLabel?.text {
-            
-          case Constants.continueBtn:
-               pushViewcontroller(Constants.JMHomeVC)
-          case Constants.skipBtn:
-               pushViewcontroller(Constants.JMHomeVC)
-          default:
-            print("No Case")
-        }
         
+        
+        let mantraText = mantraTextField.text ?? ""
+        let VC = pushDataVc(Constants.JMHomeVC) as! JMHomeViewController
+        VC.japaModel = japaMandalaModel(mantraSet: japaModel?.mantraSet, mantra: mantraText)
+        self.navigationController?.pushViewController(VC, animated: true)
         
     }
     

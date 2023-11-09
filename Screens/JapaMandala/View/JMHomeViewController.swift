@@ -20,9 +20,13 @@ class JMHomeViewController: UIViewController {
     
     @IBOutlet weak var progressView: UIProgressView!
     
+    var japaModel : japaMandalaModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        print(japaModel?.mantraSet)
+        print(japaModel?.mantra)
        
     }
     

@@ -38,12 +38,21 @@ class JapaMandalaHViewController: UIViewController{
     @IBAction func actionBtns(_ sender: UIButton) {
         
         print(sender.titleLabel?.text ?? "")
+        
         switch sender.titleLabel?.text {
             
           case Constants.twentyOne, Constants.oneHEight:
-               pushViewcontroller(Constants.mantraDetailsVC)
+            
+             let mantraSet = sender.titleLabel?.text ?? ""
+            
+             let VC = pushDataVc(Constants.mantraDetailsVC) as! MantraAddingViewController
+             VC.japaModel = japaMandalaModel(mantraSet: Int(mantraSet))
+             self.navigationController?.pushViewController(VC, animated: true)
+            
           case Constants.history:
+            
                pushViewcontroller(Constants.historyVC)
+            
           default:
             print("No Case")
         }

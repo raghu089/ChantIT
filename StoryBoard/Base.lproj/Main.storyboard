@@ -32,10 +32,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallLogo" translatesAutoresizingMaskIntoConstraints="NO" id="oiT-Iy-oSb">
-                                <rect key="frame" x="24.000000000000007" y="127" width="101.66666666666669" height="22"/>
+                                <rect key="frame" x="24.000000000000007" y="103" width="101.66666666666669" height="22"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v3E-Dz-6XE">
-                                <rect key="frame" x="42" y="179" width="309" height="489"/>
+                                <rect key="frame" x="42" y="155" width="309" height="489"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="standingMonk" translatesAutoresizingMaskIntoConstraints="NO" id="2kU-vY-0S8">
                                         <rect key="frame" x="0.0" y="0.0" width="309" height="309"/>
@@ -89,7 +89,7 @@
                             <constraint firstItem="2kU-vY-0S8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.78626" id="ANj-xV-eQq"/>
                             <constraint firstItem="VQQ-nW-6qs" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0586854" id="CHo-o5-mK5"/>
                             <constraint firstItem="VQQ-nW-6qs" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.763359" id="D6f-lG-33K"/>
-                            <constraint firstItem="oiT-Iy-oSb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="K4k-4g-UHl"/>
+                            <constraint firstItem="oiT-Iy-oSb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="K4k-4g-UHl"/>
                             <constraint firstItem="2kU-vY-0S8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.362676" id="RXT-Fb-Czw"/>
                             <constraint firstItem="v3E-Dz-6XE" firstAttribute="top" secondItem="oiT-Iy-oSb" secondAttribute="bottom" constant="30" id="yEO-R3-RZu"/>
                             <constraint firstItem="3oH-8K-jfR" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0586854" id="z5O-iD-pMZ"/>
@@ -261,7 +261,7 @@
                                         <color key="backgroundColor" name="orangeWhite"/>
                                         <color key="tintColor" name="Orange"/>
                                         <color key="textColor" name="AppBlackConstat"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46q-j0-Qb8">
