@@ -53,17 +53,27 @@ extension UIViewController{
         
     }
     
+    func presentViewcontroller(_ identifier: String){
+       
+        let VC = Constants.mainStoryboard.instantiateViewController(withIdentifier: identifier)
+          
+        self.present(VC, animated: true)
+        
+    }
     
-    //Navigation Back button
+    
+    
+    
+    //Navigation Left Button (Back)
    
     func navBackBtn(_ Navtitle: String) {
        
                self.navigationItem.title = Navtitle
                
-               let backButtonImage = UIImage(named: "arrowL")
+               let backBtnImage = UIImage(named: "arrowL")
                
                let backButton = UIBarButtonItem(
-                   image: backButtonImage,
+                   image: backBtnImage,
                    style: .plain,
                    target: self,
                    action: #selector(openInfo)
@@ -77,6 +87,27 @@ extension UIViewController{
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    //Navigation Right Button (Sound)
+   
+    func soundBtn(){
+       
+               let soundBtnImage = UIImage(named: "soundOn")
+               
+               let soundButton = UIBarButtonItem(
+                   image: soundBtnImage,
+                   style: .plain,
+                   target: self,
+                   action: #selector(soundOnOff)
+               )
+
+               self.navigationItem.rightBarButtonItem = soundButton
+        
+    }
+    
+    @objc func soundOnOff() {
+        print("Sound On")
+    }
     
     
 }

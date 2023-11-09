@@ -51,6 +51,7 @@ struct Constants {
     static let mantraDetailsVC = "MantraAddingViewController"
     static let meditationTimerVC = "MeditationTimerViewController"
     static let JMHomeVC = "JMHomeViewController"
+    static let historyDetailsVC = "HistoryDetailsViewController"
     
 }
 

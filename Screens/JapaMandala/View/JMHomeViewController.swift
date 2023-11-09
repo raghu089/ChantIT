@@ -22,9 +22,17 @@ class JMHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateUI()
        
     }
+    
+    //UI Updates
+    
+    func updateUI(){
+        navBackBtn(Constants.japaMandala)
+        soundBtn()
+    }
+
    
 
     @IBAction func actionBtn(_ sender: Any) {

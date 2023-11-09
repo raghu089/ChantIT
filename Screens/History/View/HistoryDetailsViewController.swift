@@ -18,8 +18,14 @@ class HistoryDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+         updateUI()
+        
     }
     
+    //UI Updates
+    
+    func updateUI(){
+        navBackBtn("09/11/2023")
+    }  
 
 }

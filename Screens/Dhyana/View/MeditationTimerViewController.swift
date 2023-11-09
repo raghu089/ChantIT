@@ -21,7 +21,15 @@ class MeditationTimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateUI()
+    }
+    
+    
+    //UI Updates
+    
+    func updateUI(){
+        navBackBtn(Constants.dhyana)
+        soundBtn()
     }
     
     
