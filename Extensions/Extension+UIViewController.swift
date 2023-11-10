@@ -11,7 +11,7 @@ import UIKit
 
 extension UIViewController{
     
-    //Alert View
+    //MARK: - Alert View
     
     func popAlert(title: String, message: String, actionTitles: [String], actionStyle: [UIAlertAction.Style],  action: [((UIAlertAction) -> Void)]){
         
@@ -28,7 +28,7 @@ extension UIViewController{
         
     }
     
-    //Hide Keyboard
+    // Hide Keyboard
     func hideKeyboardWhenTappedAround(){
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -37,13 +37,14 @@ extension UIViewController{
         
     }
     
-    
+    // Dismiss
     @objc func dismissKeyboard(){
         
         view.endEditing(true)
         
     }
     
+    //MARK: - Navigation
     
     func pushViewcontroller(_ identifier: String){
         

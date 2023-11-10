@@ -11,7 +11,7 @@ extension UITextField {
     
     
     func applyBorder() {
-        layer.borderWidth = 1
+           layer.borderWidth = 1
            layer.borderColor = UIColor(named: "blackDarkLight")?.cgColor
            layer.cornerRadius = 5
     }

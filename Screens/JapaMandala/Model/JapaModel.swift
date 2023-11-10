@@ -12,6 +12,6 @@ struct japaMandalaModel {
     
     var mantraSet: Int?
     var mantra: String?
-    
+    var NumberOfSets: Int?
     
 }

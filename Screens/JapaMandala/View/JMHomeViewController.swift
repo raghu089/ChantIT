@@ -27,6 +27,7 @@ class JMHomeViewController: UIViewController {
         updateUI()
         print(japaModel?.mantraSet)
         print(japaModel?.mantra)
+        print(japaModel?.NumberOfSets)
        
     }
     
@@ -35,8 +36,22 @@ class JMHomeViewController: UIViewController {
     func updateUI(){
         navBackBtn(Constants.japaMandala)
         soundBtn()
+        updateUitext()
     }
 
+    func updateUitext(){
+        guard let mantra = japaModel?.mantra else {
+            return
+        }
+        mantraText.text = mantra
+        
+        guard let mantraSet = japaModel?.mantraSet else {
+            return
+        }
+        
+        setText.text = "Set: 1 * \(mantraSet)"
+        totalText.text = "Total: 0"
+    }
    
 
     @IBAction func actionBtn(_ sender: Any) {
