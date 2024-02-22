@@ -418,7 +418,7 @@
                                         <rect key="frame" x="121.66666666666669" y="486.33333333333326" width="150" height="150"/>
                                         <color key="backgroundColor" name="Orange"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="1">
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
                                             <fontDescription key="titleFontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                             <color key="baseForegroundColor" name="AppBlackConstat"/>
                                         </buttonConfiguration>

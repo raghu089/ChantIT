@@ -27,6 +27,10 @@ class MantraAddingViewController: dataPickerViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        clearTextField()
+    }
+    
     //UI Updates
     
     func updateUI(){
@@ -39,6 +43,13 @@ class MantraAddingViewController: dataPickerViewController {
         mantraSetsTextField.setPlaceHolder("Sets")
        
     }
+    
+    func clearTextField(){
+        mantraTextField.text = ""
+        mantraSetsTextField.text = ""
+        
+    }
+    
     
     //Actions
     
@@ -59,11 +70,11 @@ class MantraAddingViewController: dataPickerViewController {
                     print("Cancle")
                 }])
             }else{
-                VC.japaModel = japaMandalaModel(mantraSet: japaModel?.mantraSet, mantra: mantraText, NumberOfSets: numberOfSets)
+                VC.japaModel = japaMandalaModel(mantraSet: japaModel?.mantraSet, mantra: mantraText, NumberOfSets: numberOfSets, skip: false)
             }
             
         case Constants.skipBtn:
-                VC.japaModel = japaMandalaModel(mantraSet: japaModel?.mantraSet, mantra: "", NumberOfSets: 0)
+                VC.japaModel = japaMandalaModel(mantraSet: japaModel?.mantraSet, mantra: "", NumberOfSets: 0, skip: true)
         default:
             print("No case")
             
@@ -89,7 +100,7 @@ extension MantraAddingViewController: UITextFieldDelegate {
    
     override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         mantraSetsTextField.text = "\(row + 1)"
-        japaModel?.NumberOfSets = row + 1
+        japaModel?.NumberOfSets = Float(row) + 1
     }
     
 }

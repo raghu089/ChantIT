@@ -28,7 +28,7 @@ extension UIViewController{
         
     }
     
-    // Hide Keyboard
+    //MARK: Hide Keyboard
     func hideKeyboardWhenTappedAround(){
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -37,7 +37,7 @@ extension UIViewController{
         
     }
     
-    // Dismiss
+    //MARK: Dismiss
     @objc func dismissKeyboard(){
         
         view.endEditing(true)
@@ -71,7 +71,7 @@ extension UIViewController{
     }
     
     
-    //Navigation Left Button (Back)
+    //MARK: Navigation Left Button (Back)
    
     func navBackBtn(_ Navtitle: String) {
        
@@ -95,7 +95,7 @@ extension UIViewController{
     }
     
     
-    //Navigation Right Button (Sound)
+    //MARK: Navigation Right Button (Sound)
    
     func soundBtn(){
        

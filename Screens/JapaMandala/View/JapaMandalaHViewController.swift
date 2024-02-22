@@ -46,7 +46,7 @@ class JapaMandalaHViewController: UIViewController{
              let mantraSet = sender.titleLabel?.text ?? ""
             
              let VC = pushDataVc(Constants.mantraDetailsVC) as! MantraAddingViewController
-             VC.japaModel = japaMandalaModel(mantraSet: Int(mantraSet))
+             VC.japaModel = japaMandalaModel(mantraSet: Float(mantraSet))
              self.navigationController?.pushViewController(VC, animated: true)
             
           case Constants.history:

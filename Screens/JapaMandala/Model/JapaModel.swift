@@ -10,8 +10,9 @@ import Foundation
 
 struct japaMandalaModel {
     
-    var mantraSet: Int?
+    var mantraSet: Float?
     var mantra: String?
-    var NumberOfSets: Int?
+    var NumberOfSets: Float?
+    var skip: Bool?
     
 }

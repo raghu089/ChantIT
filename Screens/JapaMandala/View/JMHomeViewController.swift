@@ -21,14 +21,15 @@ class JMHomeViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     
     var japaModel : japaMandalaModel?
+    var tap = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        print(japaModel?.mantraSet)
-        print(japaModel?.mantra)
-        print(japaModel?.NumberOfSets)
-       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tapBtn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 24)
     }
     
     //UI Updates
@@ -37,24 +38,53 @@ class JMHomeViewController: UIViewController {
         navBackBtn(Constants.japaMandala)
         soundBtn()
         updateUitext()
+        if japaModel?.skip == false {
+            progressView.setProgress(0, animated: true)
+        }else{
+            progressView.isHidden = true
+        }
+    }
+    
+    func totalChants() -> Float{
+        let mantraSet = japaModel?.mantraSet ?? 1
+         
+        let noOfSets = japaModel?.NumberOfSets ?? 1
+        
+        let total = (noOfSets * mantraSet)
+        
+        return total
     }
 
     func updateUitext(){
-        guard let mantra = japaModel?.mantra else {
-            return
-        }
-        mantraText.text = mantra
+      
+        mantraText.text = japaModel?.mantra ?? ""
+       
+        setText.text = "Set: \(Int(japaModel?.NumberOfSets ?? 1)) * \(Int(japaModel?.mantraSet ?? 1))"
         
-        guard let mantraSet = japaModel?.mantraSet else {
-            return
-        }
-        
-        setText.text = "Set: 1 * \(mantraSet)"
-        totalText.text = "Total: 0"
+        let total = totalChants()
+        totalText.text = "Total: \(Int(total))"
     }
+    
    
-
-    @IBAction func actionBtn(_ sender: Any) {
+   
+    @IBAction func actionBtn(_ sender: UIButton) {
+       
+        
+        
+        if japaModel?.skip == false {
+            let totalChants = totalChants()
+            let total: Float = 1/totalChants
+            
+            DispatchQueue.main.async {
+                self.progressView.progress += total
+                
+            }
+        }
+        
+        self.tapBtn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 24)
+        self.tap += 1
+        
+        self.tapBtn.setTitle("\(self.tap)", for: .normal)
         
     }
     
