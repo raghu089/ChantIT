@@ -821,6 +821,95 @@
             </objects>
             <point key="canvasLocation" x="2475.5725190839694" y="790.84507042253529"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Yjw-0l-ovD">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" id="vuS-b1-d9h" customClass="ResultViewController" customModule="ChantIT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n8x-h4-nRq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-CO-pfc">
+                                <rect key="frame" x="46.666666666666657" y="187.33333333333334" width="300" height="502.66666666666663"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="japaMonk" translatesAutoresizingMaskIntoConstraints="NO" id="9tA-qG-o67">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjs-EF-xyv">
+                                        <rect key="frame" x="112.33333333333334" y="308" width="75" height="58.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="48"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVR-sh-sz8">
+                                        <rect key="frame" x="134.66666666666669" y="374.66666666666663" width="30.666666666666657" height="24.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkM-uT-AdZ">
+                                        <rect key="frame" x="50" y="407.33333333333326" width="200" height="50"/>
+                                        <color key="backgroundColor" name="Orange"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fSN-PH-Hrz"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Home">
+                                            <fontDescription key="titleFontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
+                                            <color key="baseForegroundColor" name="AppBlackConstat"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                <integer key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="homeBtnAction:" destination="vuS-b1-d9h" eventType="touchUpInside" id="kBe-33-tie"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEy-zu-WYR">
+                                        <rect key="frame" x="106.33333333333334" y="465.33333333333326" width="87.333333333333343" height="37.333333333333314"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="History">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.15882819889999999" green="0.14937081930000001" blue="0.1456476152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="20" name="SFCompact-Semibold"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" name="blackDarkLight"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MEy-zu-WYR" firstAttribute="top" secondItem="DkM-uT-AdZ" secondAttribute="bottom" constant="30" id="MJf-cP-MaS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="d6t-oN-WXQ"/>
+                        <color key="backgroundColor" name="backGround"/>
+                        <constraints>
+                            <constraint firstItem="9tA-qG-o67" firstAttribute="height" secondItem="n8x-h4-nRq" secondAttribute="height" multiplier="0.352113" id="NK5-qz-yis"/>
+                            <constraint firstItem="DkM-uT-AdZ" firstAttribute="width" secondItem="n8x-h4-nRq" secondAttribute="width" multiplier="0.508906" id="Q0H-yf-7cA"/>
+                            <constraint firstItem="9tA-qG-o67" firstAttribute="width" secondItem="n8x-h4-nRq" secondAttribute="width" multiplier="0.763359" id="lpl-LF-EBT"/>
+                            <constraint firstItem="3dv-CO-pfc" firstAttribute="centerY" secondItem="d6t-oN-WXQ" secondAttribute="centerY" id="lqw-ng-zE7"/>
+                            <constraint firstItem="3dv-CO-pfc" firstAttribute="centerX" secondItem="d6t-oN-WXQ" secondAttribute="centerX" id="mJb-Wb-FVk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="9tA-qG-o67" id="rIm-fQ-wYx"/>
+                        <outlet property="setOmessage" destination="hVR-sh-sz8" id="1k2-hV-ltD"/>
+                        <outlet property="totalOTIme" destination="Bjs-EF-xyv" id="VmH-Aa-Lg9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E1C-sM-XyT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3198" y="791"/>
+        </scene>
         <!--History Details View Controller-->
         <scene sceneID="wHM-CB-Buf">
             <objects>
