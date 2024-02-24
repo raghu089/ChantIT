@@ -14,6 +14,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var imgView: UIImageView!
     
     @IBOutlet weak var setOmessage: UILabel!
+    @IBOutlet weak var history: UIButton!
     @IBOutlet weak var totalOTIme: UILabel!
     
     var result: Result?
@@ -38,11 +39,19 @@ class ResultViewController: UIViewController {
         
         totalOTIme.text = result?.totalOT
         setOmessage.text = result?.setOM
+        history.underlineText("History")
 
     }
     
     @IBAction func homeBtnAction(_ sender: UIButton){
         self.navigationController?.popToRootViewController(animated: true)
     }
-
+    
+    
+    @IBAction func historyBtn(_ sender: Any) {
+        
+        pushViewcontroller(Constants.historyVC)
+        
+    }
+    
 }

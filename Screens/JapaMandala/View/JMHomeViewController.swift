@@ -7,7 +7,8 @@
 
 import UIKit
 
-class JMHomeViewController: UIViewController {
+
+class JMHomeViewController: audioPlayer {
     
     
     @IBOutlet weak var mantraText: UILabel!
@@ -20,6 +21,8 @@ class JMHomeViewController: UIViewController {
     
     @IBOutlet weak var progressView: UIProgressView!
     
+    @IBOutlet weak var finishBtn: UIButton!
+    
     var japaModel : japaMandalaModel?
     var tap = 0
     var noOfset = 0
@@ -30,18 +33,27 @@ class JMHomeViewController: UIViewController {
         updateUI()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        stop()
+    }
+    
     
     //UI Updates
     func updateUI(){
         navBackBtn(Constants.japaMandala)
-        soundBtn()
+        soundBtn(#selector(soundOnOff))
         updateUitext()
+        finishBtn.underlineText("Finish")
         if japaModel?.skip == false {
             progressView.setProgress(0, animated: true)
+            finishBtn.isHidden = true
         }else{
             progressView.isHidden = true
+            finishBtn.isHidden = false
         }
     }
+    
+    
     
     //total chants
     func totalChants() -> Float{
@@ -57,7 +69,8 @@ class JMHomeViewController: UIViewController {
     //Update texts
     func updateUitext(){
       
-        mantraText.text = japaModel?.mantra ?? ""
+        let mantra = (japaModel?.mantra ?? "").capitalized
+        mantraText.text? = mantra
        
         setText.text = "Set: \(0) * \(Int(japaModel?.mantraSet ?? 1))"
         
@@ -93,12 +106,36 @@ class JMHomeViewController: UIViewController {
         
         
         if tap == Int(totalChants){
-            let VC = pushDataVc(Constants.resultVC) as! ResultViewController
-            VC.result = Result(setOM: "Set: \(noOfset) * \(Int(japaModel?.mantraSet ?? 1))", totalOT: "\(tap)")
-            self.navigationController?.pushViewController(VC, animated: true)
+            navigateToresultVc()
         }
         
     }
-
     
+    
+    @IBAction func finishBtn(_ sender: UIButton) {
+        
+         navigateToresultVc()
+    }
+    
+    
+    func navigateToresultVc(){
+        let VC = pushDataVc(Constants.resultVC) as! ResultViewController
+        VC.result = Result(setOM: "Set: \(noOfset) * \(Int(japaModel?.mantraSet ?? 1))", totalOT: "\(tap)")
+        self.navigationController?.pushViewController(VC, animated: true)
+        
+    }
+    
+    // music turnOn and off
+    @objc func soundOnOff(){
+        let playing = player?.isPlaying
+        
+        if let soundButton = navigationItem.rightBarButtonItem, let soundBtnImage = UIImage(named: playing == true ? "soundOff" : "soundOn") {
+                soundButton.image = soundBtnImage
+            }
+        
+        playing == true ? stop() : play()
+
+    }
+
+
 }

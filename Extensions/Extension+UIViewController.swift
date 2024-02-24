@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 
-extension UIViewController{
+extension UIViewController {
+    
     
     //MARK: - Alert View
     
@@ -76,7 +78,7 @@ extension UIViewController{
     func navBackBtn(_ Navtitle: String) {
        
                self.navigationItem.title = Navtitle
-               
+        
                let backBtnImage = UIImage(named: "arrowL")
                
                let backButton = UIBarButtonItem(
@@ -97,24 +99,21 @@ extension UIViewController{
     
     //MARK: Navigation Right Button (Sound)
    
-    func soundBtn(){
+    func soundBtn(_ selector: Selector?){
        
-               let soundBtnImage = UIImage(named: "soundOn")
-               
-               let soundButton = UIBarButtonItem(
-                   image: soundBtnImage,
-                   style: .plain,
-                   target: self,
-                   action: #selector(soundOnOff)
-               )
-
-               self.navigationItem.rightBarButtonItem = soundButton
+        let soundBtnImage = UIImage(named: "soundOff")
+        
+        let soundButton = UIBarButtonItem(
+            image: soundBtnImage,
+            style: .plain,
+            target: self,
+            action: selector
+        )
+        
+        
+        self.navigationItem.rightBarButtonItem = soundButton
         
     }
-    
-    @objc func soundOnOff() {
-        print("Sound On")
-    }
-    
+ 
     
 }

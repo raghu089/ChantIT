@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class PickerViewController: UIViewController {
     
     var timerPicker: UIPickerView!

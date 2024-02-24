@@ -29,7 +29,7 @@ class MeditationTimerViewController: UIViewController {
     
     func updateUI(){
         navBackBtn(Constants.dhyana)
-        soundBtn()
+    //    soundBtn()
     }
     
     
