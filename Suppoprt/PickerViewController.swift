@@ -7,10 +7,17 @@
 
 import UIKit
 
+struct Time {
+    let hour: Int
+    let miniute: Int
+    let sec: Int
+}
+
 class PickerViewController: UIViewController {
     
     var timerPicker: UIPickerView!
     var toolBar = UIToolbar()
+    var time : Time?
     let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     
     override func viewDidLoad() {
@@ -72,7 +79,10 @@ class PickerViewController: UIViewController {
     
     @objc func onDoneButtonTapped() {
         closePicker()
-        pushViewcontroller(Constants.meditationTimerVC)
+        let vc = pushDataVc(Constants.meditationTimerVC) as! MeditationTimerViewController
+        vc.time = time
+        vc.isTimeSet = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func dismissView() {
@@ -104,9 +114,11 @@ extension PickerViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
-                   return 24 // 24 hours
-        } else {
-                   return 60 // 60 minutes
+                   return 24 // 23 hours
+        } else if component == 0{
+                   return 60 // 59 minutes
+        }else{
+                   return 61 // 60 sec
         }
     }
     
@@ -115,14 +127,15 @@ extension PickerViewController : UIPickerViewDelegate, UIPickerViewDataSource{
      }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         let selectedHours = pickerView.selectedRow(inComponent: 0)
         let selectedMinutes = pickerView.selectedRow(inComponent: 1)
         let selcectedSeconds = pickerView.selectedRow(inComponent: 2)
         
         
-        let totalSeconds = (selectedHours * 3600) + (selectedMinutes * 60)
-        
-        print(selectedHours, selectedMinutes, totalSeconds)
+       // let totalSeconds = (selectedHours * 3600) + (selectedMinutes * 60)
+        time = Time(hour: selectedHours, miniute: selectedMinutes, sec: selcectedSeconds)
+        print(selectedHours, selectedMinutes, selcectedSeconds)
         // Use totalSeconds for your timer logic
     }
     

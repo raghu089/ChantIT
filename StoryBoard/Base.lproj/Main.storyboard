@@ -757,7 +757,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Tkv-91-ebE">
-                                <rect key="frame" x="0.0" y="122" width="393" height="633.33333333333337"/>
+                                <rect key="frame" x="0.0" y="116.66666666666669" width="393" height="644"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meditatingMonk" translatesAutoresizingMaskIntoConstraints="NO" id="9Q0-tq-uC1">
                                         <rect key="frame" x="46.666666666666657" y="0.0" width="300" height="300"/>
@@ -772,7 +772,7 @@
                                         </variation>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ibj-R0-vjc">
-                                        <rect key="frame" x="0.0" y="458.66666666666663" width="393" height="12"/>
+                                        <rect key="frame" x="0.0" y="458.66666666666669" width="393" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="f27-MF-QDx"/>
                                         </constraints>
@@ -780,13 +780,13 @@
                                         <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibQ-31-dS1">
-                                        <rect key="frame" x="96.666666666666686" y="526.66666666666663" width="200" height="50"/>
+                                        <rect key="frame" x="96.666666666666686" y="526.66666666666674" width="200" height="50"/>
                                         <color key="backgroundColor" name="Orange"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="8ui-UU-BXc"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Restart">
+                                        <buttonConfiguration key="configuration" style="plain" title="Start">
                                             <fontDescription key="titleFontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="24"/>
                                             <color key="baseForegroundColor" name="AppBlackConstat"/>
                                         </buttonConfiguration>
@@ -799,22 +799,35 @@
                                             <action selector="actionBtn:" destination="Afp-2e-Smz" eventType="touchUpInside" id="L3t-Th-7MK"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4g7-OA-gWW">
-                                        <rect key="frame" x="167.66666666666666" y="608.66666666666663" width="58" height="24.666666666666629"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="36"/>
-                                        <color key="textColor" name="blackDarkLight"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="20"/>
-                                        </variation>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKZ-bD-d3L">
+                                        <rect key="frame" x="158.33333333333334" y="606.66666666666674" width="76.666666666666657" height="37.333333333333371"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Finish">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="20" name="SFCompact-Semibold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" name="blackDarkLight"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="finishAction:" destination="Afp-2e-Smz" eventType="touchUpInside" id="Y3q-KS-dQv"/>
+                                            <action selector="finishBtn:" destination="nWt-fv-68d" eventType="touchUpInside" id="lyJ-fN-A91"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ibQ-31-dS1" firstAttribute="top" secondItem="ibj-R0-vjc" secondAttribute="bottom" constant="56" id="3u1-k8-3Mt"/>
                                     <constraint firstItem="7dA-1c-a85" firstAttribute="top" secondItem="9Q0-tq-uC1" secondAttribute="bottom" constant="50" id="5y7-61-3Ji"/>
                                     <constraint firstItem="ibQ-31-dS1" firstAttribute="width" secondItem="Tkv-91-ebE" secondAttribute="width" multiplier="0.508906" id="AJH-7K-c5a"/>
                                     <constraint firstAttribute="trailing" secondItem="ibj-R0-vjc" secondAttribute="trailing" id="BTu-Qi-CeM"/>
-                                    <constraint firstItem="4g7-OA-gWW" firstAttribute="top" secondItem="ibQ-31-dS1" secondAttribute="bottom" constant="32" id="HDk-wz-4DE"/>
+                                    <constraint firstItem="JKZ-bD-d3L" firstAttribute="top" secondItem="ibQ-31-dS1" secondAttribute="bottom" constant="30" id="Tcr-9I-RTy"/>
                                     <constraint firstItem="ibj-R0-vjc" firstAttribute="leading" secondItem="Tkv-91-ebE" secondAttribute="leading" id="lVp-pv-TEY"/>
                                     <constraint firstItem="ibj-R0-vjc" firstAttribute="top" secondItem="7dA-1c-a85" secondAttribute="bottom" constant="50" id="mKg-lu-9TP"/>
                                 </constraints>
@@ -834,8 +847,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="finishBtn" destination="JKZ-bD-d3L" id="Khk-0H-VE7"/>
                         <outlet property="progressView" destination="ibj-R0-vjc" id="0uD-q2-EjN"/>
-                        <outlet property="recordedTime" destination="4g7-OA-gWW" id="69x-u5-gGJ"/>
                         <outlet property="restartBtn" destination="ibQ-31-dS1" id="Cdr-5w-k9D"/>
                         <outlet property="timerText" destination="7dA-1c-a85" id="ln3-hr-1PZ"/>
                     </connections>

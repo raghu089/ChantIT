@@ -18,6 +18,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var totalOTIme: UILabel!
     
     var result: Result?
+    var time: Time?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +37,19 @@ class ResultViewController: UIViewController {
     
     //Ui Update
     func updateUi(){
+        if result != nil{
+            totalOTIme.text = result?.totalOT
+            setOmessage.text = result?.setOM
+        }else if time != nil{
+            let hours = time?.hour ?? 0
+            let minutes = time?.miniute ?? 0
+            let seconds = time?.sec ?? 0
+            
+            totalOTIme.text = String(format: "%02d : %02d : %02d", hours, minutes, seconds)
+            setOmessage.text = "Well Done"
+        }
         
-        totalOTIme.text = result?.totalOT
-        setOmessage.text = result?.setOM
         history.underlineText("History")
-
     }
     
     @IBAction func homeBtnAction(_ sender: UIButton){

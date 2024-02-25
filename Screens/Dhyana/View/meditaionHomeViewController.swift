@@ -47,7 +47,9 @@ class meditaionHomeViewController: PickerViewController {
                print("Picker")
                openPicker()
           case Constants.continueBtn:
-               pushViewcontroller(Constants.meditationTimerVC)
+               let vc = pushDataVc(Constants.meditationTimerVC) as! MeditationTimerViewController
+               vc.isTimeSet = false
+               self.navigationController?.pushViewController(vc, animated: true)
           case Constants.history:
                pushViewcontroller(Constants.historyVC)
           default:

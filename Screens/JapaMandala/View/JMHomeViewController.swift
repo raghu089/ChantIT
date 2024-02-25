@@ -33,10 +33,6 @@ class JMHomeViewController: audioPlayer {
         updateUI()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        stop()
-    }
-    
     
     //UI Updates
     func updateUI(){
@@ -52,7 +48,6 @@ class JMHomeViewController: audioPlayer {
             finishBtn.isHidden = false
         }
     }
-    
     
     
     //total chants
@@ -83,6 +78,7 @@ class JMHomeViewController: audioPlayer {
     
     @IBAction func actionBtn(_ sender: UIButton) {
         let totalChants = totalChants()
+        //progress bar hidding
         if japaModel?.skip == false {
             let total: Float = 1/totalChants
             
@@ -91,6 +87,8 @@ class JMHomeViewController: audioPlayer {
             }
         }
         
+        
+        //Adding set count
         let noOfSets = Int(japaModel?.mantraSet ?? 1)
         self.tap += 1
         mSet += 1
@@ -104,7 +102,7 @@ class JMHomeViewController: audioPlayer {
         totalText.text = "Total: \(tap)"
         self.tapBtn.setTitle("\(mSet)", for: .normal)
         
-        
+        //Navigate to result
         if tap == Int(totalChants){
             navigateToresultVc()
         }
@@ -117,7 +115,7 @@ class JMHomeViewController: audioPlayer {
          navigateToresultVc()
     }
     
-    
+    //Result VC navigation
     func navigateToresultVc(){
         let VC = pushDataVc(Constants.resultVC) as! ResultViewController
         VC.result = Result(setOM: "Set: \(noOfset) * \(Int(japaModel?.mantraSet ?? 1))", totalOT: "\(tap)")

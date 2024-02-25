@@ -14,6 +14,12 @@ class audioPlayer: UIViewController{
     var player: AVAudioPlayer?
     
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        stop()
+    }
+    
+   
     func play(){
         
         let path = Bundle.main.path(forResource: "meditation.mp3", ofType:nil)!
