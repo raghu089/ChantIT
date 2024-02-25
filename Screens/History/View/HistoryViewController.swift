@@ -11,10 +11,18 @@ class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private let manager = DataBaseManger()
+    private var JapaDetails : [JapaMandalaEntity] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        configure()
         
+    }
+    
+    func configure(){
+        updateUI()
+        loadDataBase()
     }
     
     
@@ -23,7 +31,14 @@ class HistoryViewController: UIViewController {
     func updateUI(){
         navBackBtn(Constants.history)
     }
+    
+    // CoreData
+    func loadDataBase(){
+        JapaDetails = manager.fetchJapaDetails()
+        tableView.reloadData()
+    }
 
+    
 
 }
 
@@ -31,13 +46,18 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        JapaDetails.count
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
+        
+        let japa = JapaDetails[indexPath.row]
+        cell.japaEntity = japa
+        cell.serialN.text = "\(indexPath.row + 1)"
+        
         return cell
     }
     
@@ -46,6 +66,10 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pushViewcontroller(Constants.historyDetailsVC)
+        
+        let VC = pushDataVc(Constants.historyDetailsVC) as! HistoryDetailsViewController
+        VC.japaEntity = JapaDetails[indexPath.row]
+        self.navigationController?.pushViewController(VC, animated: true)
+        
     }
 }

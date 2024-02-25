@@ -14,6 +14,10 @@ class HistoryDetailsViewController: UIViewController {
     
     @IBOutlet weak var countText: UILabel!
     
+    @IBOutlet weak var setLbl: UILabel!
+    
+    var japaEntity: JapaMandalaEntity?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,9 @@ class HistoryDetailsViewController: UIViewController {
     
     func updateUI(){
         navBackBtn("09/11/2023")
+        mantraText.text = japaEntity?.mantra
+        countText.text = japaEntity?.count
+        setLbl.text = "Set: \(japaEntity?.setDetails ?? "-")"
     }  
 
 }

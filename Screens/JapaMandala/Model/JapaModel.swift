@@ -14,5 +14,7 @@ struct japaMandalaModel {
     var mantra: String?
     var NumberOfSets: Float?
     var skip: Bool?
+    var date: String?
+    var count: String?
     
 }

@@ -24,6 +24,7 @@ class JMHomeViewController: audioPlayer {
     @IBOutlet weak var finishBtn: UIButton!
     
     var japaModel : japaMandalaModel?
+    private let manager = DataBaseManger()
     var tap = 0
     var noOfset = 0
     var mSet = 0
@@ -104,6 +105,7 @@ class JMHomeViewController: audioPlayer {
         
         //Navigate to result
         if tap == Int(totalChants){
+            saveDetails()
             navigateToresultVc()
         }
         
@@ -111,7 +113,7 @@ class JMHomeViewController: audioPlayer {
     
     
     @IBAction func finishBtn(_ sender: UIButton) {
-        
+         saveDetails()
          navigateToresultVc()
     }
     
@@ -134,6 +136,18 @@ class JMHomeViewController: audioPlayer {
         playing == true ? stop() : play()
 
     }
+    
+    
+    //MARK: - Save data to database
 
+    func saveDetails(){
+        
+        let date = Date.getCurrentDate()
+        
+        let JapaData = japaMandalaModel(mantraSet: japaModel?.mantraSet,mantra: (japaModel?.mantra ?? "").capitalized,NumberOfSets: japaModel?.NumberOfSets,date: date, count: "\(tap)")
+        
+        manager.updateJapaData(JapaData)
+     
+    }
 
 }

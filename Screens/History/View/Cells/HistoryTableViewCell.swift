@@ -17,6 +17,12 @@ class HistoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mantraCount: UILabel!
     
+    var japaEntity: JapaMandalaEntity? {
+        didSet{
+            updateCell()
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +32,15 @@ class HistoryTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        
+    }
+    
+    func updateCell(){
+        guard let japaEntity else { return }
+        
+        dateText.text = japaEntity.date
+        mantraText.text = japaEntity.mantra
+        mantraCount.text = japaEntity.count
         
     }
 

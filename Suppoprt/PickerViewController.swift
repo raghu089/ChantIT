@@ -18,6 +18,8 @@ class PickerViewController: UIViewController {
     var timerPicker: UIPickerView!
     var toolBar = UIToolbar()
     var time : Time?
+    var timer = SetTimer()
+    
     let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     
     override func viewDidLoad() {
@@ -78,11 +80,20 @@ class PickerViewController: UIViewController {
     }
     
     @objc func onDoneButtonTapped() {
-        closePicker()
-        let vc = pushDataVc(Constants.meditationTimerVC) as! MeditationTimerViewController
-        vc.time = time
-        vc.isTimeSet = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let seconds = timer.hourMinuteSecToSeconds(time?.hour ?? 0, time?.miniute ?? 0, time?.sec ?? 0)
+        
+        if seconds != 0{
+            closePicker()
+            let vc = pushDataVc(Constants.meditationTimerVC) as! MeditationTimerViewController
+            vc.time = time
+            vc.isTimeSet = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            popAlert(title: "Alert!", message: "Please Set timer", actionTitles: ["Ok"], actionStyle: [.cancel], action: [{ ok in
+                print("Cancle")
+            }])
+        }
     }
     
     @objc func dismissView() {
