@@ -19,6 +19,7 @@ class ResultViewController: UIViewController {
     
     var result: Result?
     var time: Time?
+    var isJapaM = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,11 @@ class ResultViewController: UIViewController {
     //Ui Update
     func updateUi(){
         if result != nil{
+            isJapaM = true
             totalOTIme.text = result?.totalOT
             setOmessage.text = result?.setOM
         }else if time != nil{
+            isJapaM = false
             let hours = time?.hour ?? 0
             let minutes = time?.miniute ?? 0
             let seconds = time?.sec ?? 0
@@ -59,7 +62,9 @@ class ResultViewController: UIViewController {
     
     @IBAction func historyBtn(_ sender: Any) {
         
-        pushViewcontroller(Constants.historyVC)
+        let VC = pushDataVc(Constants.historyVC) as! HistoryViewController
+        VC.isJapaMandal = isJapaM
+        self.navigationController?.pushViewController(VC, animated: true)
         
     }
     

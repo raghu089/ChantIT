@@ -17,22 +17,33 @@ class HistoryDetailsViewController: UIViewController {
     @IBOutlet weak var setLbl: UILabel!
     
     var japaEntity: JapaMandalaEntity?
-    
+    var dhyanaEntity: DhyanaEntity?
+    var isJapa = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-         updateUI()
+        if isJapa == true{
+            updateJapaUI()
+        }else{
+            updateDhyanaUI()
+        }
+         
         
     }
     
     //UI Updates
     
-    func updateUI(){
-        navBackBtn("09/11/2023")
+    func updateJapaUI(){
+        navBackBtn(japaEntity?.date ?? "")
         mantraText.text = japaEntity?.mantra
         countText.text = japaEntity?.count
         setLbl.text = "Set: \(japaEntity?.setDetails ?? "-")"
     }  
-
+     
+    func updateDhyanaUI(){
+        navBackBtn(dhyanaEntity?.date ?? "")
+        mantraText.text = dhyanaEntity?.taget
+        countText.text = dhyanaEntity?.time
+        setLbl.isHidden = true
+    }
 }

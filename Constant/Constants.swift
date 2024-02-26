@@ -11,13 +11,13 @@ import UIKit
 
 struct Constants {
     
-// MARK: - Navigation Support
-   // Only if I am using different storyboard
+    // MARK: - Navigation Support
+    // Only if I am using different storyboard
     
     static let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     
     
-// MARK: - Colors
+    // MARK: - Colors
     
     static let AppBlackConstant = "AppBlackConstat"
     static let backGround = "backGround"
@@ -26,7 +26,7 @@ struct Constants {
     static let orangeWhite = "orangeWhite"
     
     
-// MARK: - Button Names
+    // MARK: - Button Names
     //Home
     static let japaMandala = "Japa Mandala"
     static let dhyana = "Dhyana"
@@ -44,7 +44,7 @@ struct Constants {
     static let setBtn = "Set"
     
     
-// MARK: - ViewControllers
+    // MARK: - ViewControllers
     static let japaMandalaVC = "JapaMandalaHViewController"
     static let meditaionHomeVC = "meditaionHomeViewController"
     static let historyVC = "HistoryViewController"
@@ -54,6 +54,10 @@ struct Constants {
     static let historyDetailsVC = "HistoryDetailsViewController"
     static let resultVC = "ResultViewController"
     
+    //MARK: - Entity names (Core Data)
+    
+    static let dhyanaEntity = "DhyanaEntity"
+    static let JapaEntity = "JapaMandalaEntity"
+    
+    
 }
-
-

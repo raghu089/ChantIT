@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryTableViewCell: UITableViewCell {
     
@@ -19,7 +20,13 @@ class HistoryTableViewCell: UITableViewCell {
     
     var japaEntity: JapaMandalaEntity? {
         didSet{
-            updateCell()
+            updateJapaCell()
+        }
+    }
+    
+    var dhyanaEntity: DhyanaEntity? {
+        didSet{
+            updateDhyanaCell()
         }
     }
     
@@ -35,12 +42,21 @@ class HistoryTableViewCell: UITableViewCell {
         
     }
     
-    func updateCell(){
+    func updateJapaCell(){
         guard let japaEntity else { return }
         
         dateText.text = japaEntity.date
         mantraText.text = japaEntity.mantra
         mantraCount.text = japaEntity.count
+        
+    }
+    
+    func updateDhyanaCell(){
+        guard let dhyanaEntity else { return }
+        
+        dateText.text = dhyanaEntity.date
+        mantraText.text = dhyanaEntity.taget
+        mantraCount.text = dhyanaEntity.time
         
     }
 

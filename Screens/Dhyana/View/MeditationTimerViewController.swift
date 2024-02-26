@@ -26,6 +26,7 @@ class MeditationTimerViewController: audioPlayer {
     var isTimeSet = false
     var totalSec: Float?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -34,6 +35,7 @@ class MeditationTimerViewController: audioPlayer {
     func configure(){
         updateUI()
         showAlert()
+        hideKeyboardWhenTappedAround()
     }
     
     //UI Updates
@@ -62,7 +64,7 @@ class MeditationTimerViewController: audioPlayer {
         let playing = player?.isPlaying
         popAlert(title: "Enable Background Music?", message: "Would you like to have soothing background music while meditating?", actionTitles: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ yes in
             self.setBarbuttonImage(playing ?? false)
-            self.play()
+            self.playMusic()
         },
         { no in
             self.stop()
@@ -104,6 +106,8 @@ class MeditationTimerViewController: audioPlayer {
             
             if count == 0 {
                 navigateToresultVc()
+            }else if count < 4 {
+                playtimeAlert()
             }
             
         }else{
@@ -122,8 +126,11 @@ class MeditationTimerViewController: audioPlayer {
 
     //Result VC navigation
     func navigateToresultVc(){
+        saveData()
+        timer.invalidate()
         let VC = pushDataVc(Constants.resultVC) as! ResultViewController
         VC.time = time
+        VC.isJapaM = false
         self.navigationController?.pushViewController(VC, animated: true)
         
     }
@@ -142,8 +149,27 @@ class MeditationTimerViewController: audioPlayer {
         
         setBarbuttonImage(playing ?? false)
         
-        playing == true ? stop() : play()
+        playing == true ? stop() : playMusic()
 
+    }
+    
+    //Save data to database
+    
+    func saveData(){
+        
+        let date = Date.getCurrentDate()
+        
+        let timeString = setTimer.makeTimeString(time?.hour ?? 0, time?.miniute ?? 0,  time?.sec ?? 0)
+        var target = ""
+        if isTimeSet == true {
+            target = "Hit "
+        }else{
+            target = "Free"
+        }
+        
+        let dhynaData = Dhyana(date: date, time: timeString, taget: target)
+        DataBaseManger.shared.updateDhyanaData(dhynaData)
+        
     }
 
 }

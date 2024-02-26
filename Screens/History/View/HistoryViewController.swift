@@ -11,8 +11,11 @@ class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let manager = DataBaseManger()
+    @IBOutlet weak var clearHistoryBtn: UIButton!
+    
     private var JapaDetails : [JapaMandalaEntity] = []
+    private var DhyanaDetails : [DhyanaEntity] = []
+    var isJapaMandal = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +24,8 @@ class HistoryViewController: UIViewController {
     }
     
     func configure(){
-        updateUI()
         loadDataBase()
+        updateUI()
     }
     
     
@@ -30,32 +33,73 @@ class HistoryViewController: UIViewController {
     
     func updateUI(){
         navBackBtn(Constants.history)
+        clearHistoryBtn.applyBorderProperties()
+        tableView.reloadData()
+        
+        if isJapaMandal && JapaDetails.isEmpty {
+            clearHistoryBtn.isHidden = true
+        }else if !isJapaMandal && DhyanaDetails.isEmpty  {
+            clearHistoryBtn.isHidden = true
+        }else{
+            clearHistoryBtn.isHidden = false
+        }
     }
     
     // CoreData
     func loadDataBase(){
-        JapaDetails = manager.fetchJapaDetails()
+        if isJapaMandal == true{
+            JapaDetails = DataBaseManger.shared.fetchJapaDetails()
+        }else{
+            DhyanaDetails = DataBaseManger.shared.fetchDhyanaDetails()
+        }
         tableView.reloadData()
     }
-
     
-
+    @IBAction func clearHistoryAction(_ sender: Any) {
+        
+        popAlert(title: "Clear All History", message: "Are you sure you want to delete all your history?", actionTitles: ["Ok", "Cancel"], actionStyle: [.default, .cancel], action: [{
+            ok in
+            if self.isJapaMandal == true{
+                DataBaseManger.shared.deleteAllData(Constants.JapaEntity)
+            }else{
+                DataBaseManger.shared.deleteAllData(Constants.dhyanaEntity)
+            }
+            
+            DispatchQueue.main.async {
+                self.configure()
+            }
+            
+        },{ cancel in
+            print("Not deleted")
+        }
+        ])
+        
+    }
+    
 }
 
 
 extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        JapaDetails.count
+        if isJapaMandal == true{
+            return JapaDetails.count
+        }else{
+            return DhyanaDetails.count
+        }
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-        
-        let japa = JapaDetails[indexPath.row]
-        cell.japaEntity = japa
+        if isJapaMandal == true{
+            let japa = JapaDetails[indexPath.row]
+            cell.japaEntity = japa
+        }else{
+            let dhyana = DhyanaDetails[indexPath.row]
+            cell.dhyanaEntity = dhyana
+        }
         cell.serialN.text = "\(indexPath.row + 1)"
         
         return cell
@@ -68,7 +112,12 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let VC = pushDataVc(Constants.historyDetailsVC) as! HistoryDetailsViewController
-        VC.japaEntity = JapaDetails[indexPath.row]
+        if isJapaMandal == true {
+            VC.japaEntity = JapaDetails[indexPath.row]
+        }else{
+            VC.dhyanaEntity = DhyanaDetails[indexPath.row]
+        }
+        VC.isJapa = isJapaMandal
         self.navigationController?.pushViewController(VC, animated: true)
         
     }

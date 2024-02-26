@@ -51,7 +51,9 @@ class JapaMandalaHViewController: UIViewController{
             
           case Constants.history:
             
-               pushViewcontroller(Constants.historyVC)
+            let VC = pushDataVc(Constants.historyVC) as! HistoryViewController
+            VC.isJapaMandal = true
+            self.navigationController?.pushViewController(VC, animated: true)
             
           default:
             print("No Case")

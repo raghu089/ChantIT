@@ -20,23 +20,39 @@ class audioPlayer: UIViewController{
     }
     
    
-    func play(){
+    
+    func playMusic(){
         
         let path = Bundle.main.path(forResource: "meditation.mp3", ofType:nil)!
-        let url = URL(fileURLWithPath: path)
+        play(path)
+        //infinite play loop
+        player?.numberOfLoops = -1
         
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            
-            player?.play()
-        } catch {
-            // couldn't load file :(
-            print(error)
-        }
-        
-         //infinite play loop
-         player?.numberOfLoops = -1
     }
+    
+    func playtimeAlert(){
+        
+        let path = Bundle.main.path(forResource: "3sec.mp3", ofType:nil)!
+        play(path)
+        
+    }
+    
+    
+    func play(_ path: String){
+        
+         let url = URL(fileURLWithPath: path)
+         
+         do {
+             player = try AVAudioPlayer(contentsOf: url)
+             
+             player?.play()
+         } catch {
+             // couldn't load file :(
+             print(error)
+         }
+         
+          
+     }
     
     func stop(){
         player?.stop()

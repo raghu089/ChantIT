@@ -51,7 +51,9 @@ class meditaionHomeViewController: PickerViewController {
                vc.isTimeSet = false
                self.navigationController?.pushViewController(vc, animated: true)
           case Constants.history:
-               pushViewcontroller(Constants.historyVC)
+               let VC = pushDataVc(Constants.historyVC) as! HistoryViewController
+               VC.isJapaMandal = false
+               self.navigationController?.pushViewController(VC, animated: true)
           default:
             print("No Case")
         }

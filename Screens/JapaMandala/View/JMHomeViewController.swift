@@ -24,7 +24,6 @@ class JMHomeViewController: audioPlayer {
     @IBOutlet weak var finishBtn: UIButton!
     
     var japaModel : japaMandalaModel?
-    private let manager = DataBaseManger()
     var tap = 0
     var noOfset = 0
     var mSet = 0
@@ -105,7 +104,7 @@ class JMHomeViewController: audioPlayer {
         
         //Navigate to result
         if tap == Int(totalChants){
-            saveDetails()
+            HapticsManager.shered.vibrate(for: .success)
             navigateToresultVc()
         }
         
@@ -113,14 +112,16 @@ class JMHomeViewController: audioPlayer {
     
     
     @IBAction func finishBtn(_ sender: UIButton) {
-         saveDetails()
          navigateToresultVc()
     }
     
     //Result VC navigation
     func navigateToresultVc(){
+        saveDetails()
+        stop()
         let VC = pushDataVc(Constants.resultVC) as! ResultViewController
         VC.result = Result(setOM: "Set: \(noOfset) * \(Int(japaModel?.mantraSet ?? 1))", totalOT: "\(tap)")
+        VC.isJapaM = true
         self.navigationController?.pushViewController(VC, animated: true)
         
     }
@@ -133,7 +134,7 @@ class JMHomeViewController: audioPlayer {
                 soundButton.image = soundBtnImage
             }
         
-        playing == true ? stop() : play()
+        playing == true ? stop() : playMusic()
 
     }
     
@@ -145,8 +146,7 @@ class JMHomeViewController: audioPlayer {
         let date = Date.getCurrentDate()
         
         let JapaData = japaMandalaModel(mantraSet: japaModel?.mantraSet,mantra: (japaModel?.mantra ?? "").capitalized,NumberOfSets: japaModel?.NumberOfSets,date: date, count: "\(tap)")
-        
-        manager.updateJapaData(JapaData)
+        DataBaseManger.shared.updateJapaData(JapaData)
      
     }
 

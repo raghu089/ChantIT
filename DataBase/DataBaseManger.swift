@@ -9,13 +9,17 @@ import UIKit
 import CoreData
 
 
-class DataBaseManger {
+final class DataBaseManger {
+    
+    static let shared = DataBaseManger()
+    
+    private init(){}
     
     private var context: NSManagedObjectContext {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    
+    //Upadating Japa value
     func updateJapaData(_ japaModel: japaMandalaModel){
         //creating new row
         let japaMandalaEntity = JapaMandalaEntity(context: context)
@@ -29,6 +33,20 @@ class DataBaseManger {
         
     }
     
+    //Updating dhyana value
+    func updateDhyanaData(_ dhyanaModel: Dhyana){
+        //creating new row
+        let dhyanaEntity = DhyanaEntity(context: context)
+        
+        dhyanaEntity.time = dhyanaModel.time
+        dhyanaEntity.date = dhyanaModel.date
+        dhyanaEntity.taget = dhyanaModel.taget
+        
+        save()
+        
+    }
+    
+    //fetching japa details
     func fetchJapaDetails() -> [JapaMandalaEntity]{
         
         var JapaEntity: [JapaMandalaEntity] = []
@@ -40,6 +58,20 @@ class DataBaseManger {
         }
         
         return JapaEntity
+    }
+    
+    //fetching dhyana details
+    func fetchDhyanaDetails() -> [DhyanaEntity]{
+        
+        var dhyanaEntity: [DhyanaEntity] = []
+        
+        do {
+            dhyanaEntity = try context.fetch(DhyanaEntity.fetchRequest())
+        }catch{
+            print("error in loading Data")
+        }
+        
+        return dhyanaEntity
     }
     
     
@@ -58,6 +90,21 @@ class DataBaseManger {
         save()
     }
     
+    func clerDhyanaData(entity: DhyanaEntity){
+        context.delete(entity)
+        save()
+    }
     
+    func deleteAllData(_ entityName: String){
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(deleteRequest)
+        }catch{
+            print("Error in deleting")
+        }
+        save()
+    }
     
 }
