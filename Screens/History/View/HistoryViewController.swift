@@ -13,8 +13,10 @@ class HistoryViewController: UIViewController {
     
     @IBOutlet weak var clearHistoryBtn: UIButton!
     
+    @IBOutlet weak var NoRecords: UILabel!
     private var JapaDetails : [JapaMandalaEntity] = []
     private var DhyanaDetails : [DhyanaEntity] = []
+    private var manager = DataBaseManger()
     var isJapaMandal = false
     
     override func viewDidLoad() {
@@ -36,21 +38,21 @@ class HistoryViewController: UIViewController {
         clearHistoryBtn.applyBorderProperties()
         tableView.reloadData()
         
-        if isJapaMandal && JapaDetails.isEmpty {
+        if (isJapaMandal && JapaDetails.isEmpty) || (!isJapaMandal && DhyanaDetails.isEmpty) {
             clearHistoryBtn.isHidden = true
-        }else if !isJapaMandal && DhyanaDetails.isEmpty  {
-            clearHistoryBtn.isHidden = true
-        }else{
+            NoRecords.text = "No records available"
+        } else {
             clearHistoryBtn.isHidden = false
+            NoRecords.isHidden = true
         }
     }
     
     // CoreData
     func loadDataBase(){
         if isJapaMandal == true{
-            JapaDetails = DataBaseManger.shared.fetchJapaDetails()
+            JapaDetails = manager.fetchJapaDetails()
         }else{
-            DhyanaDetails = DataBaseManger.shared.fetchDhyanaDetails()
+            DhyanaDetails = manager.fetchDhyanaDetails()
         }
         tableView.reloadData()
     }
@@ -60,9 +62,9 @@ class HistoryViewController: UIViewController {
         popAlert(title: "Clear All History", message: "Are you sure you want to delete all your history?", actionTitles: ["Ok", "Cancel"], actionStyle: [.default, .cancel], action: [{
             ok in
             if self.isJapaMandal == true{
-                DataBaseManger.shared.deleteAllData(Constants.JapaEntity)
+                self.manager.deleteAllData(Constants.JapaEntity)
             }else{
-                DataBaseManger.shared.deleteAllData(Constants.dhyanaEntity)
+                self.manager.deleteAllData(Constants.dhyanaEntity)
             }
             
             DispatchQueue.main.async {

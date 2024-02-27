@@ -24,6 +24,7 @@ class JMHomeViewController: audioPlayer {
     @IBOutlet weak var finishBtn: UIButton!
     
     var japaModel : japaMandalaModel?
+    private var manager = DataBaseManger()
     var tap = 0
     var noOfset = 0
     var mSet = 0
@@ -146,7 +147,7 @@ class JMHomeViewController: audioPlayer {
         let date = Date.getCurrentDate()
         
         let JapaData = japaMandalaModel(mantraSet: japaModel?.mantraSet,mantra: (japaModel?.mantra ?? "").capitalized,NumberOfSets: japaModel?.NumberOfSets,date: date, count: "\(tap)")
-        DataBaseManger.shared.updateJapaData(JapaData)
+        manager.updateJapaData(JapaData)
      
     }
 

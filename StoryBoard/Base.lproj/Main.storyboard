@@ -523,7 +523,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-yU-vL6">
-                                <rect key="frame" x="24" y="75" width="345" height="703"/>
+                                <rect key="frame" x="24" y="75" width="345" height="508"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryTableViewCell" rowHeight="53" id="kKS-Xm-V6E" customClass="HistoryTableViewCell" customModule="ChantIT" customModuleProvider="target">
@@ -625,23 +625,32 @@
                                     <action selector="clearHistoryAction:" destination="E6m-cu-wTg" eventType="touchUpInside" id="5se-pf-CSb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzM-EC-g1G">
+                                <rect key="frame" x="194.33333333333334" y="416.33333333333331" width="4.3333333333333428" height="19.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
+                                <color key="textColor" name="AppBlackConstat"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OjL-2I-Liz"/>
                         <color key="backgroundColor" name="backGround"/>
                         <constraints>
                             <constraint firstItem="mPQ-tY-kfs" firstAttribute="leading" secondItem="OjL-2I-Liz" secondAttribute="leading" constant="16" id="9ao-N6-eFv"/>
                             <constraint firstItem="OjL-2I-Liz" firstAttribute="trailing" secondItem="JGG-yU-vL6" secondAttribute="trailing" constant="24" id="9le-gH-Pm5"/>
+                            <constraint firstItem="LzM-EC-g1G" firstAttribute="centerX" secondItem="3Ix-7z-tAT" secondAttribute="centerX" id="GYv-6o-hhd"/>
                             <constraint firstItem="JGG-yU-vL6" firstAttribute="top" secondItem="3Ix-7z-tAT" secondAttribute="topMargin" constant="16" id="Gix-ib-dBm"/>
                             <constraint firstItem="Uxi-nc-Zeg" firstAttribute="trailing" secondItem="OjL-2I-Liz" secondAttribute="trailing" id="Jig-YC-c7D"/>
+                            <constraint firstItem="LzM-EC-g1G" firstAttribute="centerY" secondItem="3Ix-7z-tAT" secondAttribute="centerY" id="KUU-Ge-AEN"/>
                             <constraint firstItem="mPQ-tY-kfs" firstAttribute="bottom" secondItem="OjL-2I-Liz" secondAttribute="bottom" constant="5" id="Sg4-9L-8Ly"/>
                             <constraint firstItem="Uxi-nc-Zeg" firstAttribute="top" secondItem="OjL-2I-Liz" secondAttribute="top" id="Tr5-7A-GJ5"/>
                             <constraint firstItem="OjL-2I-Liz" firstAttribute="trailing" secondItem="mPQ-tY-kfs" secondAttribute="trailing" constant="16" id="aaN-OG-yrw"/>
                             <constraint firstItem="JGG-yU-vL6" firstAttribute="leading" secondItem="OjL-2I-Liz" secondAttribute="leading" constant="24" id="pGz-of-rV9"/>
-                            <constraint firstItem="mPQ-tY-kfs" firstAttribute="top" secondItem="JGG-yU-vL6" secondAttribute="bottom" constant="5" id="rIR-F2-slm"/>
+                            <constraint firstItem="mPQ-tY-kfs" firstAttribute="top" secondItem="JGG-yU-vL6" secondAttribute="bottom" constant="200" id="rIR-F2-slm"/>
                             <constraint firstItem="Uxi-nc-Zeg" firstAttribute="leading" secondItem="OjL-2I-Liz" secondAttribute="leading" id="ttg-Jt-jfY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NoRecords" destination="LzM-EC-g1G" id="6Li-dW-OZu"/>
                         <outlet property="clearHistoryBtn" destination="mPQ-tY-kfs" id="x6o-7G-XXn"/>
                         <outlet property="tableView" destination="JGG-yU-vL6" id="oBr-GO-eDo"/>
                     </connections>

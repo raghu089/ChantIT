@@ -21,6 +21,7 @@ class MeditationTimerViewController: audioPlayer {
     var time: Time?
     private var setTimer = SetTimer()
     private var timer = Timer()
+    private var manager = DataBaseManger()
     var timerCounting = false
     var count = 0
     var isTimeSet = false
@@ -168,7 +169,7 @@ class MeditationTimerViewController: audioPlayer {
         }
         
         let dhynaData = Dhyana(date: date, time: timeString, taget: target)
-        DataBaseManger.shared.updateDhyanaData(dhynaData)
+        manager.updateDhyanaData(dhynaData)
         
     }
 

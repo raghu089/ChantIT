@@ -9,11 +9,7 @@ import UIKit
 import CoreData
 
 
-final class DataBaseManger {
-    
-    static let shared = DataBaseManger()
-    
-    private init(){}
+class DataBaseManger {
     
     private var context: NSManagedObjectContext {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
