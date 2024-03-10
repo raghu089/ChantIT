@@ -29,6 +29,7 @@ class MantraAddingViewController: dataPickerViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         clearTextField()
+        
     }
     
     //UI Updates
@@ -41,7 +42,7 @@ class MantraAddingViewController: dataPickerViewController {
         mantraTextField.setPlaceHolder("Enter Mantra")
         mantraSetsTextField.applyBorder()
         mantraSetsTextField.setPlaceHolder("Sets")
-       
+        hideKeyboardWhenTappedAround()
     }
     
     func clearTextField(){
@@ -96,6 +97,11 @@ extension MantraAddingViewController: UITextFieldDelegate {
             openPicker()
         }
         return false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
    
     override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
