@@ -58,6 +58,8 @@ struct Constants {
     
     static let dhyanaEntity = "DhyanaEntity"
     static let JapaEntity = "JapaMandalaEntity"
+
+    static let Testing = "Merge"
     
     
 }
