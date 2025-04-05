@@ -59,7 +59,5 @@ struct Constants {
     static let dhyanaEntity = "DhyanaEntity"
     static let JapaEntity = "JapaMandalaEntity"
 
-    //new
-    var number = 12
     
 }

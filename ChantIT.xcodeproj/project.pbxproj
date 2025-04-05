@@ -284,6 +284,7 @@
 		50F2A75A2DA10A3E008E44FE = {
 			isa = PBXGroup;
 			children = (
+				50F2A7812DA10A87008E44FE /* README.md */,
 				50F2A7652DA10A3F008E44FE /* ChantIT */,
 				50F2A7642DA10A3F008E44FE /* Products */,
 			);
@@ -309,7 +310,6 @@
 				504109ED2DA10F2200ECC5E9 /* Support */,
 				504109D32DA10EA800ECC5E9 /* Extensions */,
 				50F2A77F2DA10A85008E44FE /* Info.plist */,
-				50F2A7812DA10A87008E44FE /* README.md */,
 			);
 			path = ChantIT;
 			sourceTree = "<group>";
