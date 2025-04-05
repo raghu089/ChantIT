@@ -60,6 +60,8 @@ struct Constants {
     static let JapaEntity = "JapaMandalaEntity"
 
     // Testing
+
     var number = 40
+
     
 }
