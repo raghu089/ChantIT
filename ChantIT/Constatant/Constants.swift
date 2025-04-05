@@ -59,5 +59,7 @@ struct Constants {
     static let dhyanaEntity = "DhyanaEntity"
     static let JapaEntity = "JapaMandalaEntity"
 
+    // Testing
+    var number = 90
     
 }
